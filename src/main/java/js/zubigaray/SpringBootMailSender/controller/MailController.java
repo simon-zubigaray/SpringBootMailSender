@@ -65,11 +65,12 @@ public class MailController {
      * @return ResponseEntity con estado HTTP 200 y detalles del archivo enviado.
      */
     @PostMapping("/sendMessageWithFile")
+    // @ModelAttribute le dice a Spring: Tomá los campos enviados en el formulario multipart/form-data y mapealos a este objeto.”
     public ResponseEntity<?> receiveRequestEmailWithFile(@ModelAttribute EmailFileDTO emailFileDTO) {
 
         try {
-            // Obtiene el nombre del archivo enviado
-            String fileName = emailFileDTO.getFile().getName();
+            // Obtiene el nombre del archivo enviado con la extension
+            String fileName = emailFileDTO.getFile().getOriginalFilename();
 
             // Define la ruta donde se guardará temporalmente el archivo
             Path path = Paths.get("src/mail/resource/files" + fileName);

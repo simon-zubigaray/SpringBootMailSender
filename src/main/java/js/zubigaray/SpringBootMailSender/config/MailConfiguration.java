@@ -23,6 +23,12 @@ public class MailConfiguration {
     private String emailUser;
 
     /**
+     * Contraseña del correo del remitente.
+     */
+    @Value("${email.password}")
+    private String passwordUser;
+
+    /**
      * Crea y configura una instancia de {@link JavaMailSender} para enviar correos.
      *
      * @return una instancia configurada de {@link JavaMailSender}
@@ -42,7 +48,7 @@ public class MailConfiguration {
         mailSender.setUsername(emailUser);
 
         // Establece la contraseña de la cuenta (debería usarse una contraseña de aplicación, no la real)
-        mailSender.setPassword("<Password>");
+        mailSender.setPassword(passwordUser);
 
         // Obtiene y configura propiedades adicionales para la conexión SMTP
         Properties properties = mailSender.getJavaMailProperties();
