@@ -102,8 +102,8 @@ spring.mail.properties.mail.debug=true
 
 1. Cloná el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/email-sender-service.git
-   cd email-sender-service
+   git clone https://github.com/simon-zubigaray/SpringBootMailSender
+   cd SpringBootMailSender
    ```
 
 2. Configurá el archivo `application.properties`.
